@@ -1,0 +1,10 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+
+  & .form-element {
+    display: flex;
+    padding: 10px;
+  }
+}
