@@ -10,6 +10,7 @@ export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
   public hide = false;
+  public isLoading = false;
 
   constructor(
     private fb: FormBuilder,
@@ -22,19 +23,17 @@ export class LoginComponent implements OnInit {
 
   private createForm(): void {
     this.loginForm = this.fb.group({
-      email: ['', Validators.email],
-      password: ['', [Validators.minLength(3), Validators.maxLength(6)]]
+      email: ['', [Validators.email, Validators.required]],
+      password: ['', [Validators.minLength(3), Validators.maxLength(6), Validators.required]]
     });
   }
 
-  public getErrorMessage(): string {
-    // return this.loginForm.get('email').invalid ? 'email.invalid' : '';
-    return '';
+  public getErrorMessage(formControlName: string): string {
+    return this.loginForm.get(formControlName).invalid && 'field invalid'; // i am sad :( need another decision
   }
 
   public isInvalid(formControlName: string): boolean {
-    // return this.loginForm.get(formControlName).invalid;
-    return false;
+    return this.loginForm.get(formControlName).invalid;
   }
 
 }
