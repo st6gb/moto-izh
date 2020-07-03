@@ -1,3 +1,10 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
@@ -6,5 +13,10 @@
   & .form-element {
     display: flex;
     padding: 10px;
+  }
+
+  & .button-group {
+    display: flex;
+    justify-content: space-between;
   }
 }

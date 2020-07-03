@@ -1,15 +1,24 @@
-<div >
-  <form class="login-form">
+<div>
+  <form class="login-form" [formGroup]="loginForm">
     <div class="form-element">
-      <label for="email">Email</label>
-      <input type="email" placeholder="email" id="email">
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName="email" required>
+        <mat-error *ngIf="isInvalid('email')">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
     </div>
     <div class="form-element">
-      <label for="password">Password</label>
-      <input id="password" type="password" placeholder="password">
+      <mat-form-field appearance="fill" >
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
     </div>
-    <div class="form-element">
-      <input type="button" value="login">
+    <div class="form-element button-group">
+      <button mat-raised-button>registration</button>
+      <button mat-raised-button color="primary">login</button>
     </div>
   </form>
 </div>
