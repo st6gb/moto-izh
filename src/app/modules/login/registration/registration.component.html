@@ -1,5 +1,5 @@
-<form class="login-form" [formGroup]="loginForm">
-  <h1 class="form-header"> Login</h1>
+<form class="registration-form" [formGroup]="registrationForm">
+  <h1 class="form-header">Registration</h1>
   <div class="form-element">
     <mat-form-field appearance="fill" style="width: 100%">
       <mat-label>Enter your email</mat-label>
@@ -18,13 +18,12 @@
     </mat-form-field>
   </div>
   <div class="form-element button-group">
-    <a mat-raised-button routerLink="/auth/registration">registration</a>
+    <a mat-raised-button routerLink="/auth/login">log in</a>
     <button mat-raised-button color="primary">
-      login
+      registration
       <mat-icon *ngIf="isLoading">
         <mat-spinner diameter="20"></mat-spinner>
       </mat-icon>
     </button>
   </div>
 </form>
-

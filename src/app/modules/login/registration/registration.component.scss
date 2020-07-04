@@ -1,0 +1,26 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+
+  & .form-header {
+    display: flex;
+    justify-content: center;
+  }
+
+  & .form-element {
+    display: flex;
+  }
+
+  & .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+}

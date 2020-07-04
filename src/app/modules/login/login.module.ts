@@ -9,10 +9,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [
+    LoginComponent,
+    RegistrationComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
