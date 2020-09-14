@@ -1,0 +1,8 @@
+<form [formGroup]="scheduleTramForm">
+  <mat-form-field>
+    <mat-label>Выберете маршрут</mat-label>
+    <mat-select formControlName="tramRoute">
+      <mat-option *ngFor="let route of routes" value="route.value">{{route.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

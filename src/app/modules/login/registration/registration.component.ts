@@ -35,9 +35,9 @@ export class RegistrationComponent implements OnInit {
 
   }
 
-  private prepareUserDataForRegistration(): IUser {
-    const userData
-  }
+  // private prepareUserDataForRegistration(): IUser {
+  //   const userData
+  // }
 
   private createRegistrationForm(): void {
     this.registrationForm = this.fb.group({
