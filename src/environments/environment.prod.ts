@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  serverUrl: 'http://heroku ???'
+  serverUrl: 'https://blojek-server.herokuapp.com/'
 };
