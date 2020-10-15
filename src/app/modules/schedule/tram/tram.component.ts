@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { interval, Observable, Subject } from 'rxjs';
-import { debounce, switchMap, take } from 'rxjs/internal/operators';
+import { catchError, debounce, switchMap, take } from 'rxjs/internal/operators';
+import { DialogTramComponent } from './dialog_table_schedule/dialog_table_schedule.component';
 
 import { ITramModel, TramService } from './tram.service';
 
@@ -21,19 +23,19 @@ export class TramComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private tramService: TramService,
+    public dialog: MatDialog,
   ) {
     this.createScheduleTramForm();
   }
 
   ngOnInit() {
-    console.log();
     this.tramService.getAllTramRoutes().subscribe(routes => {
       this.routes = routes;
     });
     this.tramService.getAllTramStations().subscribe(stations => {
       this.stations = stations;
     });
-    this.scheduleTramForm.get('tramsStation').valueChanges.subscribe(data => {
+    this.scheduleTramForm.get('scheduleTrams').valueChanges.subscribe(data => {
       console.log(data);
     });
 
@@ -51,15 +53,47 @@ export class TramComponent implements OnInit {
     return station.Name;
   }
 
+  stationsFiltered(): ITramModel[] {
+    return this.stations.filter((station) => {
+      return station.Value !== this.scheduleTramForm.get('tramsStationFrom').value?.Value;
+    });
+  }
+
   handleChangeStation(value: string) {
     this.stationName.next(value);
+  }
+
+  handleSubmit($event: Event) {
+    $event?.preventDefault();
+    this.tramService.getSchedule(this.scheduleTramForm.value)
+    .pipe(
+      catchError((err) => {
+        console.log(err);
+        return err;
+      })
+    )
+      .subscribe(data => this.openDialog(data));
+  }
+
+  private openDialog(data): void {
+    const dialogRef = this.dialog.open(DialogTramComponent, {
+      width: '100%',
+      data
+    });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed', result);
+    // });
   }
 
   private createScheduleTramForm(): void {
     this.scheduleTramForm = this.fb.group({
       tramRoute: [0, [Validators.required]],
-      tramsStation: [0, [Validators.required]],
-      scheduleTrams: ['', [Validators.required]]
+      tramsStationFrom: [0, [Validators.required]],
+      tramsStationTo: [0, [Validators.required]],
+      scheduleTrams: [new Date(), [Validators.required]],
+      scheduleTramsTime: [`${new Date().getHours()}:${new Date().getMinutes()}`, [Validators.required]],
+      timeTrams: [30, [Validators.required, Validators.min(0)]]
     });
   }
 }

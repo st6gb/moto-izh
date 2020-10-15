@@ -15,6 +15,7 @@ export class TramService {
   private serverPrefix = environment.serverUrl;
   private tramRoutes = 'tramRoutes';
   private tramStations = 'tramStations';
+  private scheduleUrl = 'getStation';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -32,5 +33,9 @@ export class TramService {
 
   public getAllTramRoutes(): Observable<ITramModel[]> {
     return this.httpClient.get<ITramModel[]>(`${this.serverPrefix}${this.tramRoutes}`);
+  }
+
+  public getSchedule(body) {
+    return this.httpClient.post(`${this.serverPrefix}${this.scheduleUrl}`, body, {responseType: 'text'});
   }
 }

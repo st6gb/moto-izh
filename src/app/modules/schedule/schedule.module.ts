@@ -8,18 +8,24 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ScheduleRoutingModule } from './schedule-routing.module';
 
 import { TramComponent } from './tram/tram.component';
-import { MatNativeDateModule } from '@angular/material/core';
+import { DialogTramComponent } from './tram/dialog_table_schedule/dialog_table_schedule.component';
+import { BusComponent } from './bus/bus.component';
 
 
 @NgModule({
   declarations: [
     TramComponent,
+    DialogTramComponent,
+    BusComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +41,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatAutocompleteModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatDialogModule,
+    NgxMaterialTimepickerModule.setLocale('ru-Ru'),
   ]
 })
 export class ScheduleModule { }
