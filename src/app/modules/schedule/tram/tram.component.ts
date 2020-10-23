@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { interval, Observable, Subject } from 'rxjs';
-import { catchError, debounce, switchMap, take } from 'rxjs/internal/operators';
+import { Subject, interval } from 'rxjs';
+import { catchError, switchMap, debounce } from 'rxjs/operators';
 import { DialogTramComponent } from './dialog_table_schedule/dialog_table_schedule.component';
 
 import { ITramModel, TramService } from './tram.service';
