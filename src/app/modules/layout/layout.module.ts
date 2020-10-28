@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 import { PrivateLayoutComponent } from './private-layout/private-layout.component';
 import { PublicLayoutComponent } from './public-layout/public-layout.component';
@@ -20,6 +21,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   ],
   imports: [
     CommonModule,
+    MatIconModule,
     LayoutRoutingModule,
   ]
 })

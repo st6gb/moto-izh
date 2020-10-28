@@ -1,1 +1,16 @@
-<p>sidebar works!</p>
+<nav class="sidebar">
+  <ul>
+    <li
+      *ngFor="let item of items"
+      class="sidebar_item"
+    >
+      <a
+        routerLink="{{item.link}}"
+        routerLinkActive="sidebar_item--active"
+      >
+        <mat-icon aria-hidden="false">{{item.icon}}</mat-icon>
+        <span>{{item.name | uppercase}}</span>
+      </a>
+    </li>
+  </ul>
+</nav>
