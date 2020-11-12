@@ -17,7 +17,13 @@ const routes: Routes = [
   {
     path: 'schedule',
     component: PrivateLayoutComponent,
-    loadChildren: () => import('../schedule/schedule.module').then(module => module.ScheduleModule) }
+    loadChildren: () => import('../schedule/schedule.module').then(module => module.ScheduleModule)
+  },
+  {
+    path: 'game',
+    component: PrivateLayoutComponent,
+    loadChildren: () => import('../puzzle-fifteen/puzzle-fifteen.module').then(module => module.PuzzleFifteenModule)
+  }
 ];
 
 @NgModule({

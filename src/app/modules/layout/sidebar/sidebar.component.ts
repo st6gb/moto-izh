@@ -13,8 +13,8 @@ export class SidebarComponent implements OnInit {
       icon: 'tram',
     },
     {
-      name: 'Name2',
-      link: '/some',
+      name: 'Games',
+      link: '/game',
       icon: 'check_circle_outline',
     },
     {
