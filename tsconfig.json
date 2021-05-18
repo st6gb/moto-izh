@@ -13,7 +13,8 @@
     "target": "es2015",
     "alwaysStrict": true,
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+      "node_modules/@types/node"
     ],
     "lib": [
       "es2018",
@@ -26,8 +27,7 @@
         true,
         "check-format",
         "allow-leading-underscore",
-        "allow-leading-underscore",
-        "allow-pascal-case"
+        "allow-pascal-case",
       ]
     }
   },
