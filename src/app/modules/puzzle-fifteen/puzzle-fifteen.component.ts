@@ -9,7 +9,9 @@ import { PuzzleFifteenService } from './puzzle-fifteen.service';
 export class PuzzleFifteenComponent implements OnInit {
 
   constructor(private puzzleService: PuzzleFifteenService) { }
-
+  get service(): PuzzleFifteenService {
+    return this.puzzleService;
+  }
   ngOnInit(): void {
     //
   }

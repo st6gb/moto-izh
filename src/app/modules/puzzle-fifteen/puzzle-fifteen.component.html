@@ -1,3 +1,7 @@
-<div>
-
+<div class="puzzle-fifteen">
+  <ng-container
+    *ngFor="let cell of service.order"
+  >
+    <app-puzzle-cell>{{cell}}</app-puzzle-cell>
+  </ng-container>
 </div>
