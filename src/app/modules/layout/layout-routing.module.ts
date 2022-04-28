@@ -7,7 +7,7 @@ import { PublicLayoutComponent } from './public-layout/public-layout.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'schedule',
+    redirectTo: 'auth',
     pathMatch: 'full'
   },
   {
@@ -23,6 +23,11 @@ const routes: Routes = [
     path: 'game',
     component: PrivateLayoutComponent,
     loadChildren: () => import('../puzzle-fifteen/puzzle-fifteen.module').then(module => module.PuzzleFifteenModule)
+  },
+  {
+    path: 'people',
+    component: PrivateLayoutComponent,
+    loadChildren: () => import('../people/people.module').then(module => module.PeopleModule)
   }
 ];
 

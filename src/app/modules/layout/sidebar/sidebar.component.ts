@@ -18,8 +18,8 @@ export class SidebarComponent implements OnInit {
       icon: 'check_circle_outline',
     },
     {
-      name: 'Name3',
-      link: '/some1',
+      name: 'People',
+      link: '/people',
       icon: 'check_circle_outline',
     }
   ];
