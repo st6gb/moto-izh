@@ -10,7 +10,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpCoreModule } from '../httpCore/http-core.module';
 
 
 @NgModule({
@@ -20,7 +20,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
     ReactiveFormsModule,
     LoginRoutingModule,
     MatFormFieldModule,
@@ -28,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    HttpCoreModule
   ]
 })
 export class LoginModule { }

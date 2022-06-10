@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './modules/core/core.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { LayoutModule } from './modules/layout/layout.module';
+import { NoopInterceptor } from './http-interceptors/noop-interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpCoreModule } from './modules/httpCore/http-core.module';
+import { RegisterIcons } from './modules/shared/register-icons.service';
 
 @NgModule({
   declarations: [
@@ -19,8 +23,12 @@ import { LayoutModule } from './modules/layout/layout.module';
     SharedModule,
     BrowserAnimationsModule,
     LayoutModule,
+    HttpCoreModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private registerIconService: RegisterIcons) {
+    this.registerIconService.registerAllIcons();
+  }
+}

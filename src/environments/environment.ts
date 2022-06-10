@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'http://192.168.1.103:3000/'
+  serverUrl: 'https://blojek-server.herokuapp.com/'
 };
 
 /*
