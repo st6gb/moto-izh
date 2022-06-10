@@ -16,4 +16,8 @@ export class PuzzleFifteenComponent implements OnInit {
     //
   }
 
+  onReplace(cell: number) {
+    this.puzzleService.setNewOrder(cell);
+  }
+
 }

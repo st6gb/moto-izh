@@ -2,6 +2,9 @@
   <ng-container
     *ngFor="let cell of service.order"
   >
-    <app-puzzle-cell>{{cell}}</app-puzzle-cell>
+    <app-puzzle-cell
+      (click)="onReplace(cell)"
+      [order]="cell"
+    >{{cell}}</app-puzzle-cell>
   </ng-container>
 </div>
