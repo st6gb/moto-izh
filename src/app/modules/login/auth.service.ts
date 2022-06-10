@@ -10,9 +10,7 @@ export interface IUser {
   password: string;
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AuthService {
   private apiUrl = {
     registration: 'login/addUser'

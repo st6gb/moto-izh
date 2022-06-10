@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-puzzle-cell',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./puzzle-cell.component.scss']
 })
 export class PuzzleCellComponent implements OnInit {
-
+  @Input() order: number;
   constructor() { }
 
   ngOnInit(): void {
