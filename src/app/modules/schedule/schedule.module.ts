@@ -14,13 +14,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { ScheduleRoutingModule } from './schedule-routing.module';
 
 import { TramComponent } from './tram/tram.component';
 import { DialogTramComponent } from './tram/dialog_table_schedule/dialog_table_schedule.component';
 import { BusComponent } from './bus/bus.component';
 import { ScheduleComponent } from './schedule.component';
+import { NoopInterceptor } from 'src/app/http-interceptors/noop-interceptor';
+import { HttpCoreModule } from '../httpCore/http-core.module';
 
 
 @NgModule({
@@ -31,8 +32,8 @@ import { ScheduleComponent } from './schedule.component';
     BusComponent,
   ],
   imports: [
+    HttpCoreModule,
     CommonModule,
-    HttpClientModule,
     ReactiveFormsModule,
     ScheduleRoutingModule,
     MatFormFieldModule,
@@ -47,6 +48,6 @@ import { ScheduleComponent } from './schedule.component';
     MatDialogModule,
     MatTabsModule,
     NgxMaterialTimepickerModule.setLocale('ru-Ru'),
-  ]
+  ],
 })
 export class ScheduleModule { }

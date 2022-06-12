@@ -1,2 +1,15 @@
 <p>people-list works!</p>
 <a routerLink="people-card">go to people card</a>
+<div class="container">
+  <div class="wrapper">
+    <div
+      #element
+      (click)="goNext(element)"
+      *ngFor="let card of cards; index as i"
+      class="card card-{{i}} card-b-{{card}}"
+    >
+      {{card}}
+    </div>
+  </div>
+</div>
+

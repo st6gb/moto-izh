@@ -21,7 +21,6 @@ import { AuthService } from './auth.service';
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
     ReactiveFormsModule,
     LoginRoutingModule,
     MatFormFieldModule,
