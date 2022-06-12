@@ -8,6 +8,32 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PeopleListComponent implements OnInit {
   public cards = [1, 2, 3];
+  public banners = [
+    {
+      id: 1,
+      header: 'Кредит «Без бумаг | Оборотный»',
+      body: 'Вам одобрен кредит на 10 000 000 ₽. Без залога и поручителей! Элементарно! ',
+      img: 'some',
+      background: '#273EB8',
+      color: '#ffffff'
+    },
+    {
+      id: 2,
+      header: 'Кредит «Без бумаг | Оборотный»',
+      body: 'Вам одобрен кредит на 10 000 000 ₽. Без залога и поручителей! Элементарно! Вам одобрен кредит на 10 000 000 ₽. Без залога и поручителей! Элементарно!',
+      img: 'some',
+      background: 'linear-gradient(270deg, #57E6AB 0%, #4EA3CD 101.99%)',
+      color: '#ffffff'
+    },
+    {
+      id: 3,
+      header: 'Кредит «Без бумаг | Оборотный»',
+      body: 'Вам одобрен кредит на 10 000 000 ₽. Без залога и поручителей! Элементарно! Вам одобрен кредит на 10 000 000 ₽. Без залога и поручителей! Элементарно!',
+      img: 'some',
+      background: '#4EA3CD',
+      color: '#ffffff'
+    }
+  ];
   @ViewChildren('element') items: QueryList<ElementRef>;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -27,8 +53,8 @@ export class PeopleListComponent implements OnInit {
     setTimeout(() => {
       this.items.first.nativeElement.classList.remove('card-move');
       this.items.get(1).nativeElement.classList.remove('card-up');
-      const e = this.cards.shift();
-      this.cards.push(e);
+      const e = this.banners.shift();
+      this.banners.push(e);
     }, 300);
   }
 

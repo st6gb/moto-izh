@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div
+    class="banner banner-{{position}}"
+    [ngStyle]="{'background': content.background, 'color': content.color}"
+  >
+    <div class="content">
+      <h1>{{content.header}}</h1>
+      <article>{{content.body}}</article>
+    </div>
+    <button class="go_to_next"(click)="goToNext()">
+      <div class="triangle"></div>
+    </button>
+  </div>
+
+</div>
+

@@ -1,0 +1,50 @@
+.wrapper {
+  position: relative;
+  border-radius: 12px;
+  height: 100%;
+  width: 100%;
+  max-width: 1018px;
+  max-height: 112px;
+}
+
+.banner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+
+  .content {
+    max-width: 747px;
+  }
+
+  h1 {
+    margin-bottom: 12px;
+  }
+
+}
+
+.content {
+  padding: 16px;
+}
+
+.go_to_next {
+  height: 112px;
+  width: 43px;
+  border-radius: 0 12px 12px 0;
+  border: none;
+  background-color: white;
+  opacity: 60%;
+
+  .triangle {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    width: 10px;
+    height: 10px;
+  }
+}

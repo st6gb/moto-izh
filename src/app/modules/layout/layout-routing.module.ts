@@ -7,7 +7,7 @@ import { PublicLayoutComponent } from './public-layout/public-layout.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'auth',
+    redirectTo: 'people',
     pathMatch: 'full'
   },
   {

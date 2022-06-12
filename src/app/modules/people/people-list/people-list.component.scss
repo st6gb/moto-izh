@@ -1,13 +1,10 @@
 .card {
   position: absolute;
-  width: 300px;
-  height: 100px;
-  border: 1px solid silver;
+  width: 1018px;
+  height: 112px;
 }
 .wrapper {
   position: relative;
-  width: 300px;
-  height: 100px;
 }
 
 .wrapper:hover {
@@ -27,25 +24,14 @@
   transition-timing-function: ease-in-out
 }
 
-.card-b-1 {
-  background-color: aqua;
-}
-.card-b-2 {
-  background-color: red;
-}
-.card-b-3 {
-  background-color: yellow;
-}
-
 .card-1 {
-
   z-index: 2;
-  left: 5px;
+  left: 10px;
   top: 10px;
-  height: 80px;
+  height: 88px;
 
   &.card-up {
-    height: 100px;
+    height: 112px;
     left: 0px;
     top: 0px;
     transition: height 0.3s, left 0.3s, top 0.3s;
@@ -54,14 +40,18 @@
 }
 
 .card-2 {
-
   z-index: 1;
-  height: 60px;
+  height: 66px;
   top: 20px;
-  left: 10px;
+  left: 17px;
 }
 
 .container {
   margin-left: 300px;
   position: relative;
+}
+
+.container-2 {
+  margin-top: 100px;
+  margin-left: 30px;
 }

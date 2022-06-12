@@ -4,11 +4,15 @@
   <div class="wrapper">
     <div
       #element
-      (click)="goNext(element)"
-      *ngFor="let card of cards; index as i"
-      class="card card-{{i}} card-b-{{card}}"
+      *ngFor="let banner of banners; index as i"
+      class="card card-{{i}}"
     >
-      {{card}}
+      <app-banner
+        [content]="banner"
+        [position]="i"
+        [container]="element"
+        (goNext)="goNext($event)"
+      ></app-banner>
     </div>
   </div>
 </div>
