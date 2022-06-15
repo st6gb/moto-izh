@@ -6,6 +6,12 @@
 .wrapper {
   position: relative;
 }
+.wrapper-carusel {
+  position: relative;
+  height: 112px;
+  margin-right: 24px;
+
+}
 
 .wrapper:hover {
   top: -2px;
@@ -13,7 +19,6 @@
 }
 
 .card-0 {
-
   z-index: 3;
 }
 
@@ -44,11 +49,19 @@
   height: 66px;
   top: 20px;
   left: 17px;
+
+  &.card-up {
+    height: 88px;
+    left: 10px;
+    top: 10px;
+    transition: height 0.3s, left 0.3s, top 0.3s;
+    transition-timing-function: ease-in-out
+  }
 }
 
 .container {
-  margin-left: 300px;
-  position: relative;
+  margin-left: 24px;
+  height: 150px;
 }
 
 .container-2 {

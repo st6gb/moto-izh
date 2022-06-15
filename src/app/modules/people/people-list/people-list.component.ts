@@ -32,9 +32,10 @@ export class PeopleListComponent implements OnInit {
       img: 'some',
       background: '#4EA3CD',
       color: '#ffffff'
-    }
+    },
   ];
   @ViewChildren('element') items: QueryList<ElementRef>;
+  @ViewChildren('element2') items2: QueryList<ElementRef>;
   constructor(
     private activatedRoute: ActivatedRoute,
     ) { }
@@ -49,10 +50,27 @@ export class PeopleListComponent implements OnInit {
     console.log(this.items);
     this.items.first.nativeElement.classList.add('card-move');
     this.items.get(1).nativeElement.classList.add('card-up');
+    this.items.get(2).nativeElement.classList.add('card-up');
     // element.classList.add('card-move');
     setTimeout(() => {
       this.items.first.nativeElement.classList.remove('card-move');
       this.items.get(1).nativeElement.classList.remove('card-up');
+      this.items.get(2).nativeElement.classList.remove('card-up');
+      const e = this.banners.shift();
+      this.banners.push(e);
+    }, 300);
+  }
+
+  goNext2(element: HTMLElement) {
+    console.log(this.items2);
+    this.items2.first.nativeElement.classList.add('card-move');
+    this.items2.get(1).nativeElement.classList.add('card-up');
+    this.items2.get(2).nativeElement.classList.add('card-up');
+    // element.classList.add('card-move');
+    setTimeout(() => {
+      this.items2.first.nativeElement.classList.remove('card-move');
+      this.items2.get(1).nativeElement.classList.remove('card-up');
+      this.items2.get(2).nativeElement.classList.remove('card-up');
       const e = this.banners.shift();
       this.banners.push(e);
     }, 300);
