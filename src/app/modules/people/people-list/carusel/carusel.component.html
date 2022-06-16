@@ -5,8 +5,10 @@
 >
   <ng-container *ngFor="let banner of content; index as i">
     <carusel-item
+      [items]="content"
       [position]="i"
       [animateClasses]="getClassesAnimate(i)"
+      [isAnimate]="isAnimate"
     >
       <app-banner
         (goNext)="goToNext($event)"

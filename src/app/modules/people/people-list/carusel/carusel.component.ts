@@ -1,5 +1,6 @@
 import { animate, transition, trigger } from '@angular/animations';
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-carusel',
@@ -17,13 +18,18 @@ export class CaruselComponent implements OnInit {
   @Input() content;
 
   public toggle = false;
-  private isAnimate = false;
+  public isAnimate = false;
   constructor(private cd: ChangeDetectorRef) { }
 
+  autoplay = true;
+
   ngOnInit(): void {
+    // interval(2500).subscribe(() => {
+    //   this.goToNext()
+    // });
   }
 
-  goToNext(event: any) {
+  goToNext(event?: any) {
     if (this.isAnimate) {
       return;
     }
@@ -36,9 +42,9 @@ export class CaruselComponent implements OnInit {
   }
 
   public handleEndAnimate($event) {
-    this.isAnimate = false;
     const e = this.content.shift();
     this.content.push(e);
+    this.isAnimate = false;
   }
 
   public getClassesAnimate(position: number): string {

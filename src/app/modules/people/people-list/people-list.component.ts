@@ -13,7 +13,7 @@ export class PeopleListComponent implements OnInit {
       id: 1,
       header: 'Кредит «Без бумаг | Оборотный»',
       body: 'Вам одобрен кредит на 10 000 000 ₽. Без залога и поручителей! Элементарно! ',
-      img: 'some',
+      img: './',
       background: '#273EB8',
       color: '#ffffff'
     },
@@ -31,6 +31,14 @@ export class PeopleListComponent implements OnInit {
       body: 'Вам одобрен кредит на 10 000 000 ₽. Без залога и поручителей! Элементарно! Вам одобрен кредит на 10 000 000 ₽. Без залога и поручителей! Элементарно!',
       img: 'some',
       background: '#4EA3CD',
+      color: '#ffffff'
+    },
+    {
+      id: 3,
+      header: 'Кредит «Без бумаг | Оборотный»',
+      body: 'Вам одобрен кредит на 10 000 000 ₽. Без залога и поручителей! Элементарно! Вам одобрен кредит на 10 000 000 ₽. Без залога и поручителей! Элементарно!',
+      img: 'some',
+      background: '#542244',
       color: '#ffffff'
     },
   ];
