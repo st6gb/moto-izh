@@ -7,7 +7,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./people-list.component.scss']
 })
 export class PeopleListComponent implements OnInit {
-
   constructor(
     private activatedRoute: ActivatedRoute,
     ) { }
@@ -17,5 +16,4 @@ export class PeopleListComponent implements OnInit {
       console.log(params);
     });
   }
-
 }
