@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,8 @@ import { NoopInterceptor } from './http-interceptors/noop-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpCoreModule } from './modules/httpCore/http-core.module';
 import { RegisterIcons } from './modules/shared/register-icons.service';
+import { ColorThemesService } from './services/color-themes.service';
+import { initializeGeneralSettingsFactory } from './general-settings.factory';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,15 @@ import { RegisterIcons } from './modules/shared/register-icons.service';
     LayoutModule,
     HttpCoreModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeGeneralSettingsFactory,
+      deps: [ColorThemesService],
+      multi: true
+    }
+  ]
 })
 export class AppModule {
   constructor(private registerIconService: RegisterIcons) {

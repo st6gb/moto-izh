@@ -1,19 +1,4 @@
 <p>people-list works!</p>
 <a routerLink="people-card">go to people card</a>
-<div class="container">
-  <div class="wrapper">
-    <div
-      #element
-      *ngFor="let banner of banners; index as i"
-      class="card card-{{i}}"
-    >
-      <app-banner
-        [content]="banner"
-        [position]="i"
-        [container]="element"
-        (goNext)="goNext($event)"
-      ></app-banner>
-    </div>
-  </div>
-</div>
+
 

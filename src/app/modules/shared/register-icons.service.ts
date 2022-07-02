@@ -17,9 +17,9 @@ export class RegisterIcons {
   }
 
   private registerLogoIcon(): void {
-    this.matIconRegistry.addSvgIcon(
-      'logo',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../../../assets/logo.svg')
-    );
+    // this.matIconRegistry.addSvgIcon(
+    //   'logo',
+    //   this.domSanitizer.bypassSecurityTrustResourceUrl('../../../assets/logo.svg')
+    // );
   }
 }
