@@ -1,7 +1,7 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { PeopleCardComponent } from "./people-card/people-card.component";
-import { PeopleListComponent } from "./people-list/people-list.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { PeopleCardComponent } from './people-card/people-card.component';
+import { PeopleListComponent } from './people-list/people-list.component';
 
 const routes: Routes = [
   {
