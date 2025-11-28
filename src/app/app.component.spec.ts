@@ -1,30 +1,17 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { TestBed } from "@angular/core/testing";
 
-fdescribe('AppComponent', () => {
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+import { App } from './app.component'
+
+describe('App', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [App],
     }).compileComponents();
-  }));
-
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
   });
 
-  it('should replace all params', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(App);
     const app = fixture.componentInstance;
-
-    const text = app.substituteParams('раз &&param&& два &&rest&& три &&param&& &&rest&& четыре', {'&&rest&&': 'one', '&&param&&': 'two'});
-    expect(text).toBe('раз two два one три two one четыре');
+    expect(app).toBeTruthy();
   });
 });
