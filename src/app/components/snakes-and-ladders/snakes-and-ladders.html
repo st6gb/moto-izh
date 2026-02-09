@@ -1,0 +1,144 @@
+<div class="snakes-and-ladders-container">
+  <div class="header">
+    <h1>🐍 Snakes and Ladders 🪜</h1>
+  </div>
+
+  <div class="content">
+    <div class="sidebar">
+      <div class="section">
+        <h2>Add Players</h2>
+        <div class="add-player-form">
+          <input
+            #playerNameInput
+            type="text"
+            placeholder="Enter player name"
+            (keyup.enter)="addPlayer(playerNameInput.value); playerNameInput.value = ''"
+          />
+          <button
+            (click)="addPlayer(playerNameInput.value); playerNameInput.value = ''"
+            class="btn btn-primary"
+          >
+            Add Player
+          </button>
+        </div>
+
+        <div class="players-list">
+          <h3>Players ({{ players.length }}/4)</h3>
+          <div
+            *ngFor="let player of players"
+            class="player-item"
+            [style.border-left]="'4px solid ' + player.color"
+            [class.active]="player.isActive"
+          >
+            <span class="player-name">{{ player.name }}</span>
+            <span class="player-position">Pos: {{ player.position }}</span>
+            <button
+              *ngIf="!gameStarted"
+              (click)="removePlayer(player.id)"
+              class="btn btn-small btn-danger"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Game Control</h2>
+        <button
+          (click)="startGame()"
+          [disabled]="gameStarted"
+          class="btn btn-primary btn-block"
+        >
+          Start Game
+        </button>
+        <button
+          (click)="rollDice()"
+          [disabled]="!gameStarted || gameFinished"
+          class="btn btn-success btn-block"
+        >
+          🎲 Roll Dice
+        </button>
+        <div *ngIf="diceValue !== null" class="dice-display">
+          Dice: <strong>{{ diceValue }}</strong>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Message</h2>
+        <div class="message-box" [class.error]="message.includes('cannot')">
+          {{ message || 'Welcome to Snakes and Ladders!' }}
+        </div>
+      </div>
+
+      <div class="section">
+        <button
+          (click)="resetGame()"
+          class="btn btn-secondary btn-block"
+        >
+          Reset Game
+        </button>
+      </div>
+    </div>
+
+    <div class="board-container">
+      <div
+        class="board"
+        [style.--grid-size]="gridSize"
+      >
+        <div
+          *ngFor="let square of getSortedBoard()"
+          class="square"
+          [class.has-snake]="square.snakeTo !== undefined"
+          [class.has-ladder]="square.ladderTo !== undefined"
+        >
+          <div class="square-number">{{ square.id }}</div>
+
+          <!-- Snake -->
+          <svg
+            *ngIf="square.snakeTo"
+            class="snake-icon"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m3-15H9c-.55 0-1 .45-1 1s.45 1 1 1h6c.55 0 1-.45 1-1s-.45-1-1-1m-3 9c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"
+            />
+          </svg>
+
+          <!-- Ladder -->
+          <svg
+            *ngIf="square.ladderTo"
+            class="ladder-icon"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M7 5c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m-5 3c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"
+            />
+          </svg>
+
+          <!-- Players on square -->
+          <div class="players-on-square">
+            <div
+              *ngFor="let player of getPlayersOnSquare(square.id)"
+              class="player-marker"
+              [style.background-color]="player.color"
+              [title]="player.name"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="gameFinished && winner" class="winner-modal">
+    <div class="winner-content">
+      <h2>🎉 Game Over! 🎉</h2>
+      <p class="winner-name">{{ winner.name }} Wins!</p>
+      <button (click)="resetGame()" class="btn btn-primary">
+        Play Again
+      </button>
+    </div>
+  </div>
+</div>
