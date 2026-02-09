@@ -1,0 +1,43 @@
+<div class="chess-container">
+  <div class="chess-header">
+    <h1>Chess Game</h1>
+    <p class="game-status">{{ gameStatus }}</p>
+    @if (checkStatus) {
+      <div class="check-status">{{ checkStatus }}</div>
+    }
+  </div>
+
+  <div class="chess-board">
+    @for (row of board; track $index; let rowIndex = $index) {
+      <div class="board-row">
+        @for (piece of row; track $index; let colIndex = $index) {
+          <div
+            class="square"
+            [ngClass]="{'selected': isSelected(rowIndex, colIndex), 'valid-move': isValidMoveSquare(rowIndex, colIndex)}"
+            [class]="getSquareColor(rowIndex, colIndex)"
+            (click)="onSquareClick(rowIndex, colIndex)"
+          >
+            @if (piece) {
+              <span class="piece">{{ getPieceSymbol(piece) }}</span>
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  <div class="chess-controls">
+    <button (click)="resetGame()" class="reset-btn">New Game</button>
+  </div>
+
+  <div class="move-history">
+    <h3>Move History</h3>
+    <div class="moves">
+      @for (move of moveHistory; track $index; let i = $index) {
+        <span class="move">
+          {{ i + 1 }}. {{ move }}
+        </span>
+      }
+    </div>
+  </div>
+</div>
