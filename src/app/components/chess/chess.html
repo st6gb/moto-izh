@@ -2,9 +2,6 @@
   <div class="chess-header">
     <h1>Chess Game</h1>
     <p class="game-status">{{ gameStatus }}</p>
-    @if (checkStatus) {
-      <div class="check-status">{{ checkStatus }}</div>
-    }
   </div>
 
   <div class="chess-board">
@@ -12,9 +9,7 @@
       <div class="board-row">
         @for (piece of row; track $index; let colIndex = $index) {
           <div
-            class="square"
-            [ngClass]="{'selected': isSelected(rowIndex, colIndex), 'valid-move': isValidMoveSquare(rowIndex, colIndex)}"
-            [class]="getSquareColor(rowIndex, colIndex)"
+            [class]="'square ' + getSquareColor(rowIndex, colIndex) + (isSelected(rowIndex, colIndex) ? ' selected' : '') + (isValidMoveSquare(rowIndex, colIndex) ? ' valid-move' : '')"
             (click)="onSquareClick(rowIndex, colIndex)"
           >
             @if (piece) {
