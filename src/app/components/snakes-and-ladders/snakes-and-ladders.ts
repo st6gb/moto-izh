@@ -85,10 +85,15 @@ export class SnakesAndLaddersComponent implements OnInit {
     this.winner = null;
     this.currentPlayerIndex = 0;
     this.players.forEach((p) => (p.position = 1));
+    this.updatePlayerStatus();
     this.message = `${this.players[0].name}'s turn`;
   }
 
   addPlayer(name: string): void {
+    if (this.gameStarted) {
+      this.message = 'Cannot add player during game';
+      return;
+    }
     if (!name.trim()) {
       this.message = 'Player name cannot be empty';
       return;

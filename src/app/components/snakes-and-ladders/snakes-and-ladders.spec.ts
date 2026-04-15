@@ -14,6 +14,7 @@ describe('SnakesAndLaddersComponent', () => {
     fixture = TestBed.createComponent(SnakesAndLaddersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    component.ngOnInit();
   });
 
   it('should create', () => {
@@ -68,9 +69,9 @@ describe('SnakesAndLaddersComponent', () => {
     component.addPlayer('Alice');
     component.startGame();
     component.players[0].position = 16;
-    component.rollDice = jasmine.createSpy('rollDice').and.callFake(() => {
+    vi.spyOn(component, 'rollDice').mockImplementation(() => {
       const currentPlayer = component.players[0];
-      let newPosition = 16 + (16 - 15); // Simulating dice roll
+      let newPosition = 16; // Simulate landing on the snake square
       const square = component.board[newPosition - 1];
       if (square.snakeTo) {
         newPosition = square.snakeTo;

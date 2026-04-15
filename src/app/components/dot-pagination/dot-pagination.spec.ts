@@ -59,7 +59,7 @@ describe('DotPaginationComponent', () => {
   });
 
   it('should emit dotClicked event when dot is clicked', () => {
-    spyOn(component.dotClicked, 'emit');
+    vi.spyOn(component.dotClicked, 'emit');
 
     component.onDotClick(3);
 
@@ -81,7 +81,7 @@ describe('DotPaginationComponent', () => {
     expect(component.dots.length).toBe(3);
   });
 
-  it('should trigger animation on currentIndex change', (done) => {
+  it('should trigger animation on currentIndex change', () => new Promise((done) => {
     component.currentIndex = 1;
     component.animationDuration = 100;
 
@@ -100,9 +100,9 @@ describe('DotPaginationComponent', () => {
 
     setTimeout(() => {
       expect(component.isAnimating).toBe(false);
-      done();
+      done('1');
     }, 150);
-  });
+  }));
 
   it('should generate correct dot style object', () => {
     component.dotSize = 10;
@@ -131,7 +131,7 @@ describe('DotPaginationComponent', () => {
     expect(style['gap.px']).toBe(10);
   });
 
-  it('should update animations on config change', (done) => {
+  it('should update animations on config change', () => new Promise((done) => {
     component.totalDots = 5;
     component.currentIndex = 0;
     component.animationDuration = 200;
@@ -149,7 +149,7 @@ describe('DotPaginationComponent', () => {
 
     setTimeout(() => {
       expect(component.isAnimating).toBe(false);
-      done();
+      done('1');
     }, 250);
-  });
+  }));
 });
