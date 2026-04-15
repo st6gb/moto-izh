@@ -1,0 +1,12 @@
+<div class="dot-pagination-container" [ngStyle]="getContainerStyle()">
+  @for (dot of dots; track dot.index) {
+    <button
+      class="dot"
+      [ngStyle]="getDotStyle(dot)"
+      (click)="onDotClick(dot.index)"
+      [attr.aria-label]="'Go to slide ' + (dot.index + 1)"
+      [attr.aria-current]="dot.isActive ? 'true' : 'false'"
+      [@animationState]="isAnimating ? 'animating' : 'idle'"
+    ></button>
+  }
+</div>

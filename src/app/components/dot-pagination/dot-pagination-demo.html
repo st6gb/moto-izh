@@ -1,0 +1,62 @@
+<div class="demo-container">
+  <h1>Dot Pagination Demo</h1>
+
+  <div class="carousel-container">
+    <div class="carousel-wrapper">
+      <div
+        class="slide"
+        [style.background-color]="currentSlideData.color"
+      >
+        <div class="slide-content">
+          <h2>{{ currentSlideData.title }}</h2>
+          <p>{{ currentSlideData.description }}</p>
+          <p class="slide-number">{{ currentSlide + 1 }} / {{ slides.length }}</p>
+        </div>
+      </div>
+
+      <button class="nav-btn prev-btn" (click)="previousSlide()">❮</button>
+      <button class="nav-btn next-btn" (click)="nextSlide()">❯</button>
+    </div>
+
+    <div class="pagination-wrapper">
+      <app-dot-pagination
+        [totalDots]="slides.length"
+        [currentIndex]="currentSlide"
+        [dotSize]="8"
+        [spacing]="8"
+        [animationDuration]="300"
+        [activeColor]="'#ffffff'"
+        [inactiveColor]="'rgba(255, 255, 255, 0.4)'"
+        (dotClicked)="onDotClick($event)"
+      ></app-dot-pagination>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="control-group">
+      <label>Current Slide: {{ currentSlide + 1 }}</label>
+      <input
+        type="range"
+        min="0"
+        [max]="slides.length - 1"
+        [(ngModel)]="currentSlide"
+        (change)="onDotClick(currentSlide)"
+        class="slider"
+      />
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h3>Features</h3>
+    <ul>
+      <li>✨ Smooth animations with customizable duration</li>
+      <li>🎯 Active dot expands horizontally</li>
+      <li>💫 Pulse animation on active dot</li>
+      <li>🎨 Customizable colors and sizing</li>
+      <li>📱 Fully responsive design</li>
+      <li>♿ Accessible with ARIA labels</li>
+      <li>⚡ High performance with OnPush change detection</li>
+      <li>🖱️ Click navigation and keyboard support</li>
+    </ul>
+  </div>
+</div>
