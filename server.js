@@ -3,10 +3,10 @@ const express = require('express');
 const app = express();
 
 app.use(compression());
-app.use(express.static(`./dist/bikeizh-web`));
+app.use(express.static(`./dist/bikeizh-web/browser`));
 
 app.get('/*', function(req, res) {
-  res.sendFile('index.html', {root: 'dist/bikeizh-web/'});
+  res.sendFile('index.html', {root: 'dist/bikeizh-web/browser'});
 });
 
 app.listen(process.env.PORT || 8080);
