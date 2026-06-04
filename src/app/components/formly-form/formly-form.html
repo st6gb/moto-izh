@@ -1,0 +1,5 @@
+<p>formly-form works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit(model)">
+  <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+  <p-button label="Submit" type="submit" />
+</form>
