@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { User, OldUser } from './user.interface';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [RouterOutlet]
 })
 export class App implements OnInit {
@@ -16,6 +18,21 @@ export class App implements OnInit {
       text = text.replace(regExp, value);
     }
     return text;
+  }
+
+  /**
+   * Map an OldUser shape to the modern User shape.
+   */
+  public mapOldUserToUser(oldUser: OldUser): User {
+    return {
+      id: Number(oldUser.idn),
+      name: oldUser.names,
+      email: oldUser.emails,
+      password: oldUser.passwords,
+      role: oldUser.roles,
+      createdAt: new Date(oldUser.createdAt),
+      updatedAt: new Date(oldUser.updatedAt),
+    };
   }
 
   ngOnInit(): void {

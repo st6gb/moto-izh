@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-dice',
   imports: [],
   templateUrl: './dice.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './dice.scss',
 })
 export class Dice {

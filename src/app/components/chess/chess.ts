@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Piece, Position, Color } from './chess.model';
 import { ChessBoardService } from './chess-board.service';
 import { ChessEngineService } from './chess-engine.service';
@@ -8,6 +8,7 @@ import { ChessEngineService } from './chess-engine.service';
   standalone: true,
   imports: [],
   templateUrl: './chess.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './chess.scss',
 })
 export class ChessComponent {

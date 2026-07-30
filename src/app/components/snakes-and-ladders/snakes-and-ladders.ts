@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface Player {
@@ -19,6 +19,7 @@ interface BoardSquare {
   selector: 'app-snakes-and-ladders',
   imports: [CommonModule],
   templateUrl: './snakes-and-ladders.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './snakes-and-ladders.scss',
 })
 export class SnakesAndLaddersComponent implements OnInit {

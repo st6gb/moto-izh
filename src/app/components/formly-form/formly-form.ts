@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { FormGroup, ReactiveFormsModule, UntypedFormGroup } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { ButtonModule } from 'primeng/button';
 
@@ -8,10 +8,11 @@ import { ButtonModule } from 'primeng/button';
   selector: 'app-formly-form',
   imports: [CommonModule, FormlyModule, ReactiveFormsModule, ButtonModule],
   templateUrl: './formly-form.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './formly-form.scss',
 })
 export class FormlyFormComponent {
-  form = new FormGroup({});
+  form = new UntypedFormGroup({});
   model = {};
   fields = [
     {
